@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] array = new int[10];
+            Random rand = new Random();
+            for (int i = 0; i < array.Length; i++)
+                array[i] = rand.Next(1, 101);
+
+            Console.WriteLine(string.Join(", ", array));
+
+            int middle = 0; // Середнє арифметичне
+
+            int array_count = array.Length; // Кількість елементів в масиві
+            int summary = 0; // Сума значень всіх елементів
+
+            for (int i = 0; i < array_count; i++)
+            {
+                summary += array[i];
+            }
+            middle = summary / array_count; // Отримуємо Середнє арифметичне
+            Console.WriteLine("\nСереднє арифметичне: {0}", middle);
+
+            
+            int min = int.MaxValue; // Мінімальне значення
+            int max = int.MinValue; // Максимальне значення
+            for (int i = 0; i < array_count; i++)
+            {
+                int val = array[i];
+                if (val < min)
+                {
+                    min = val;
+                }
+                if (val > max)
+                {
+                    max = val;
+                }
+            }
+
+            Console.WriteLine("Мiнiмальне значення: {0}\nМаксимальне значення: {1}", min, max);
+            Console.ReadLine();
+        }
+    }
+}
